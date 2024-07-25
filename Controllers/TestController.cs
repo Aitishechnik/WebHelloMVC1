@@ -25,6 +25,12 @@ namespace WebHelloMVC1.Controllers
             else return BadRequest("Name list was not found");
         }
 
+        [HttpGet("persons")]
+        public async Task<ViewResult> ShowPersons()
+        {
+            return View(Person.All);
+        }
+
         [HttpPost]
         [ActionName("AddNames")]
         public async Task<IActionResult> AddName(List<string> names)
